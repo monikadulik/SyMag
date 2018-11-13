@@ -13,4 +13,28 @@
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('welcome');
+
+Route::get('alerts', function () {
+    return view('alerts');
+})->name('alerts');
+
+Route::get('reports', function () {
+    return view('reports');
+})->name('reports');
+
+Route::get('createpack', function () {
+    return view('createpack');
+})->name('createpack');
+
+Route::get('warehouse', function () {
+    return view('warehouse');
+})->name('warehouse');
+
+Route::get('addgoods', function () {
+    return view('addgoods');
+})->name('addgoods');
+
+Route::get('issuegoods', function () {
+    return view('issuegoods');
+})->name('issuegoods');

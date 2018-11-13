@@ -10,8 +10,9 @@
 
     </head>
     <body>
-        @include('partials.header')
-        <p>- Welecome View - </p>
+    @include('partials.header')
+
+    <p> - Alerts view - </p>
 
 
 
