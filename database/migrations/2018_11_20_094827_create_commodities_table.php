@@ -14,7 +14,18 @@ class CreateCommoditiesTable extends Migration
     public function up()
     {
         Schema::create('commodities', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('id_towaru');
+            $table->string('numer_katalogowy');
+            $table->string('nazwa');
+//            $table->foreign('id_magazynu');
+            $table->decimal('cena_jednostkowa', 8, 2);
+            $table->string('jednostka_miary');
+            $table->decimal('max_ilosc', 8,2);
+            $table->decimal('min_ilosc', 8, 2);
+            $table->dateTime('data_przyjęcia');
+            $table->boolean('czy_ostrzegac_o_nadmiarze');
+            $table->boolean('czy_ostrzegac_o_niedomiarze');
+            $table->string('kod_lokalizacji');
             $table->timestamps();
         });
     }

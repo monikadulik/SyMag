@@ -14,7 +14,11 @@ class CreateOrdersTable extends Migration
     public function up()
     {
         Schema::create('orders', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('id_zamowienia');
+//            $table->foreign('id_kontrahenta');
+            $table->decimal('wartosc_zamowienia');
+            $table->dateTime('data_zamowienia');
+            $table->string('status_realizacji');
             $table->timestamps();
         });
     }
