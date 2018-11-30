@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark nav-pills nav-fill">
-    <a class="navbar-brand" href="{{ route('welcome') }}"><img src="logo.png" width="60" height="30" alt=""></a>
+    <a class="navbar-brand" href="{{ route('welcome') }}"><img src="{{ asset('logo.png') }}" width="60" height="30" alt=""></a>
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>

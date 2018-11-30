@@ -27,9 +27,13 @@ Route::get('createpack', function () {
     return view('createpack');
 })->name('createpack');
 
-Route::get('warehouse', function () {
-    return view('warehouse');
-})->name('warehouse');
+Route::get('warehouse', 'WarehouseController@home')
+    ->name('warehouse');
+
+Route::get('warehouse/search', [
+    'uses' => 'WarehouseController@getFilteredCommodities',
+    'as' => 'warehouse.filter'
+]);
 
 Route::get('addgoods', function () {
     return view('addgoods');
