@@ -18,7 +18,7 @@
                     <a class="dropdown-item" href="{{ route('warehouse') }}">Pokaż stan magazynu</a>
                 </div>
             </div>
-            <a class="btn btn-secondary px-2" href="{{ route('createpack') }}">Kompletacja paczki</a>
+            <a class="btn btn-secondary px-2" href="{{ route('inProgress') }}">Kompletacja paczki</a>
         </div>
         <a class="btn btn-light px-2 mx-1" href="{{ route('reports') }}">Raporty</a>
         <a class="btn btn-warning px-2 mx-1" href="{{ route('alerts') }}">Alerty</a>

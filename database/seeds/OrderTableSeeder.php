@@ -55,14 +55,5 @@ class OrderTableSeeder extends Seeder
             'status_realizacji' => 'WYDANO'
         ]);
         $order->save(); //6
-
-
-        $order = new \App\Order([
-            'wartosc_zamowienia' => '240.85',
-            'data_zamowienia' => '2018-09-12',
-            'status_realizacji' => 'DOSTARCZONO'
-        ]);
-        $order->save(); //7
-
     }
 }

@@ -14,17 +14,17 @@
 
 <div class="container">
 
-<div class="row mb-3 mt-3">
-    <button class="btn btn-outline-dark mr-5 h-50" type="button" data-toggle="collapse" data-target="#collapseFilter" aria-expanded="false" aria-controls="collapseExample">
+<div class="row m-3">
+    <button class="btn btn-outline-dark mr-4 h-50" type="button" data-toggle="collapse" data-target="#collapseFilter" aria-expanded="false">
         Filtruj wyniki
     </button>
     <div class="collapse" id="collapseFilter">
-        <form method="get" action="{{ route('warehouse.filter') }}">
+        <form method="get" action="{{ route('warehouse.search') }}">
             <div class="row">
                 <div class="col-md-4 mb-3">
                     <label for="warehouse">Magazyn</label>
                     <select class="custom-select d-block w-100" id="warehouse" name="warehouse">
-                        <option value="" selected disabled hidden>Wybierz z listy...</option>
+                        <option value="">Wybierz z listy...</option>
                         @foreach($warehouse_list as $warehouse)
                             <option>{{ $warehouse }}</option>
                         @endforeach
@@ -70,8 +70,6 @@
 </table>
 
 </div>
-</div>
-
 
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

@@ -3,3 +3,10 @@ th {
     top: 0;
     background: #eeeeee;
 }
+
+.btn-group {
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}

@@ -23,17 +23,35 @@ Route::get('reports', function () {
     return view('reports');
 })->name('reports');
 
-Route::get('createpack', function () {
-    return view('createpack');
-})->name('createpack');
 
-Route::get('warehouse', 'WarehouseController@home')
-    ->name('warehouse');
+Route::group(['prefix' => 'orders'], function (){
+    Route::get('inProgress', [
+        'uses' => 'CreatePackController@showInProgress',
+        'as' => 'inProgress'
+    ]);
+    Route::get('awaitingPayment', [
+        'uses' => 'CreatePackController@showAwaitingPayment',
+        'as' => 'awaitingPayment'
+    ]);
+    Route::get('awaitingIssue', [
+        'uses' => 'CreatePackController@showAwaitingIssue',
+        'as' => 'awaitingIssue'
+    ]);
+    Route::get('issued', [
+        'uses' => 'CreatePackController@showIssued',
+        'as' => 'issued'
+    ]);
+});
 
-Route::get('warehouse/search', [
-    'uses' => 'WarehouseController@getFilteredCommodities',
-    'as' => 'warehouse.filter'
-]);
+Route::group(['prefix' => 'warehouse'], function (){
+    Route::get('', 'WarehouseController@home')
+        ->name('warehouse');
+    Route::get('search', [
+        'uses' => 'WarehouseController@getFilteredCommodities',
+        'as' => 'warehouse.search'
+    ]);
+});
+
 
 Route::get('addgoods', function () {
     return view('addgoods');
