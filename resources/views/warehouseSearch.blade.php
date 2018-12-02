@@ -25,8 +25,8 @@
                         <label for="warehouse">Magazyn</label>
                         <select class="custom-select d-block w-100" id="warehouse" name="warehouse">
                             <option value="">Wybierz z listy...</option>
-                            @foreach($warehouse_list as $warehouse)
-                                <option>{{ $warehouse }}</option>
+                            @foreach($warehouses as $warehouse)
+                                <option value="{{ $warehouse->id }}">{{ $warehouse->nazwa }}</option>
                             @endforeach
                         </select>
                     </div>
@@ -55,6 +55,7 @@
             <th scope="col">Na stanie</th>
             <th scope="col">Jednostka miary</th>
             <th scope="col">Kod lokalizacji</th>
+            <th scope="col">Id magazynu</th>
         </tr>
         </thead>
         <tbody>
@@ -67,6 +68,7 @@
                 <td>{{ $commodity->ilosc_na_stanie }}</td>
                 <td>{{ $commodity->jednostka_miary }}</td>
                 <td>{{ $commodity->kod_lokalizacji }}</td>
+                <td>{{ $commodity->id_magazynu }}</td>
             </tr>
         @endforeach
         </tbody>

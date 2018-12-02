@@ -15,9 +15,10 @@ class CreateCommoditiesTable extends Migration
     {
         Schema::create('commodities', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('id_magazynu'); //foreign
+
             $table->string('numer_katalogowy');
             $table->string('nazwa');
-//            $table->foreign('id_magazynu');
             $table->decimal('cena_jednostkowa', 8, 2);
             $table->decimal('ilosc_na_stanie',8,2);
             $table->string('jednostka_miary');
@@ -27,6 +28,7 @@ class CreateCommoditiesTable extends Migration
             $table->boolean('czy_ostrzegac_o_nadmiarze');
             $table->boolean('czy_ostrzegac_o_niedomiarze');
             $table->string('kod_lokalizacji');
+
             $table->timestamps();
         });
     }
