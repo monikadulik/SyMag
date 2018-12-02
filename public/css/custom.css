@@ -1,12 +1,28 @@
+.btn-group {
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
 th {
     position: sticky;
     top: 0;
     background: #eeeeee;
 }
 
-.btn-group {
-    margin: auto;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
+table.table tr td button.disp-on-hov {
+    visibility: hidden;
+}
+table.table tr:hover td button.disp-on-hov {
+    display:inline-block;
+    visibility: visible;
+}
+
+table.table tr td a.disp-on-hov {
+    visibility: hidden;
+}
+table.table tr:hover td a.disp-on-hov {
+    display:inline-block;
+    visibility: visible;
 }

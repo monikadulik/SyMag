@@ -15,8 +15,8 @@
 <div class="container">
 
     <div class="btn-group m-3">
-        <a class="btn btn-secondary" type="button" href="{{ route('inProgress') }}">W realizacji</a>
         <a class="btn btn-dark" type="button" href="{{ route('awaitingPayment') }}">Oczekuje na płatność</a>
+        <a class="btn btn-secondary" type="button" href="{{ route('inProgress') }}">W realizacji</a>
         <a class="btn btn-secondary" type="button" href="{{ route('awaitingIssue') }}">Oczekuje na wydanie</a>
         <a class="btn btn-secondary" type="button" href="{{ route('issued') }}">Wydano</a>
     </div>

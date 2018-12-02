@@ -41,6 +41,14 @@ Route::group(['prefix' => 'orders'], function (){
         'uses' => 'CreatePackController@showIssued',
         'as' => 'issued'
     ]);
+    Route::get('createPackage', [
+        'uses' => 'CreatePackController@createPackage',
+        'as' => 'createPackage'
+    ]);
+//    Route::get('createPackage/{package_id}', [
+//        'uses' => 'CreatePackController@createPackage',
+//        'as' => 'createPackage'
+//    ]);
 });
 
 Route::group(['prefix' => 'warehouse'], function (){
