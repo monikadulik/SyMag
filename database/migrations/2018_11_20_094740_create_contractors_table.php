@@ -15,8 +15,8 @@ class CreateContractorsTable extends Migration
     {
         Schema::create('contractors', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nazwa_kontrahenta');
-            $table->string('adres_kontrahenta');
+            $table->string('nazwa');
+            $table->string('adres');
             $table->string('NIP');
             $table->string('konto');
             $table->timestamps();
