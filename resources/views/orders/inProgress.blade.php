@@ -26,6 +26,7 @@
         <tr>
             <th scope="col">#</th>
             <th scope="col">Data zamówienia</th>
+            {{--<th scope="col">Kontrahent</th>--}}
             <th scope="col">Wartość zamówienia</th>
             <th scope="col">Status realizacj</th>
             <th scope="col">Przygotuj paczkę</th>
@@ -36,6 +37,7 @@
             <tr>
                 <td scope="row">{{ $loop->iteration }}</td>
                 <td>{{ $order->data_zamowienia }}</td>
+{{--                <td>{{ \App\Contractor::find($order->id_kontrahenta)->nazwa }}</td>--}}
                 <td>{{ $order->wartosc_zamowienia }}</td>
                 <td>{{ $order->status_realizacji }}</td>
                 <td>

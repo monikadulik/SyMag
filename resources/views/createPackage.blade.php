@@ -15,8 +15,8 @@
 
 <div class="container mt-3">
     <div class="row">
-        <div>
-            <h4 class="text-muted mb-3">Pozycje zamówienia nr: XXBC</h4>
+        <div class="col-md-8 order-md-1 mt-2">
+            <h4 class="text-muted mb-3 ml-2">Pozycje zamówienia nr: XXBC</h4>
             <ul class="list-group">
                 <li class="list-group-item d-flex justify-content-between">
                     <div class="mr-4">
@@ -26,7 +26,7 @@
                     </div>
                     <div class="mr-4">
                         <h6>Jednostka: SZTUKI</h6>
-                        <h6 class="d-inline-block mr-2">Ilosc: 3</h6>
+                        <h5 class="d-inline-block mr-2">Ilosc: 3</h5>
                         <small class="text-danger d-inline-block">Brakuje towarów!</small>
                     </div>
                     <div class="btn-group-vertical btn-group-toggle" data-toggle="buttons">
@@ -50,7 +50,7 @@
                     </div>
                     <div class="mr-4">
                         <h6>Jednostka: SZTUKI</h6>
-                        <h6 class="d-inline-block mr-2">Ilosc: 3</h6>
+                        <h5 class="d-inline-block mr-2">Ilosc: 3</h5>
                         <small class="text-danger d-inline-block">Brakuje towarów!</small>
                     </div>
                     <div class="btn-group-vertical btn-group-toggle" data-toggle="buttons">
@@ -74,7 +74,7 @@
                     </div>
                     <div class="mr-4">
                         <h6>Jednostka: SZTUKI</h6>
-                        <h6 class="d-inline-block mr-2">Ilosc: 3</h6>
+                        <h5 class="d-inline-block mr-2">Ilosc: 3</h5>
                         <small class="text-danger d-inline-block">Brakuje towarów!</small>
                     </div>
                     <div class="btn-group-vertical btn-group-toggle" data-toggle="buttons">
@@ -90,6 +90,49 @@
                     </div>
                 </li>
             </ul>
+        </div>
+
+
+
+
+
+        <div class="col-md-4 order-md-2 mt-2">
+            <h4 class="text-muted ml-2 mb-3">Dane adresowe</h4>
+
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <div>
+                        <h6 class="my-0">Kontrahent Sp. z o.o.</h6>
+                        <small class="text-muted">Nazwa kontrahenta</small>
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    <div>
+                        <h6 class="my-0">ul. Kontrahenta 00</h6>
+                        <h6 class="my-0">XX-XXX Bielsko</h6>
+                        <small class="text-muted">Adres wysyłki</small>
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    <div>
+                        <h6 class="my-0">kontrahent@symag.com</h6>
+                        <small class="text-muted">Adres e-mail</small>
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    <div>
+                        <h6 class="my-0">000-000-000</h6>
+                        <small class="text-muted">Telefon kontaktowy</small>
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    <div>
+                        <h6 class="my-0">Kurier DHL</h6>
+                        <small class="text-muted">Wybrany sposób dostawy</small>
+                    </div>
+                </li>
+            </ul>
+
         </div>
     </div>
 </div>

@@ -18,6 +18,7 @@ class CreateOrdersTable extends Migration
             $table->integer('id_kontrahenta'); //foreign
 
             $table->decimal('wartosc_zamowienia');
+            $table->string('sposob_dostawy');
             $table->dateTime('data_zamowienia');
             $table->string('status_realizacji');
             $table->timestamps();
