@@ -14,7 +14,7 @@ class CreateWarehousesTable extends Migration
     public function up()
     {
         Schema::create('warehouses', function (Blueprint $table) {
-            $table->increments('id_magazynu');
+            $table->increments('id');
             $table->string('nazwa');
             $table->string('lokalizacja');
             $table->integer('powierzchnia');

@@ -52,6 +52,7 @@
             <th scope="col">Numer katalogowy</th>
             <th scope="col">Nazwa</th>
             <th scope="col">Cena jednostkowa</th>
+            <th scope="col">Na stanie</th>
             <th scope="col">Jednostka miary</th>
             <th scope="col">Kod lokalizacji</th>
         </tr>
@@ -59,10 +60,11 @@
         <tbody>
         @foreach($commodities as $commodity)
             <tr>
-                <th scope="row">{{ $loop->iteration }}</th>
+                <td scope="row">{{ $loop->iteration }}</td>
                 <td>{{ $commodity->numer_katalogowy }}</td>
                 <td>{{ $commodity->nazwa }}</td>
                 <td>{{ $commodity->cena_jednostkowa }}</td>
+                <td>{{ $commodity->ilosc_na_stanie }}</td>
                 <td>{{ $commodity->jednostka_miary }}</td>
                 <td>{{ $commodity->kod_lokalizacji }}</td>
             </tr>

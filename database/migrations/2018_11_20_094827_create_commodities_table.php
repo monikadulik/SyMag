@@ -14,11 +14,12 @@ class CreateCommoditiesTable extends Migration
     public function up()
     {
         Schema::create('commodities', function (Blueprint $table) {
-            $table->increments('id_towaru');
+            $table->increments('id');
             $table->string('numer_katalogowy');
             $table->string('nazwa');
 //            $table->foreign('id_magazynu');
             $table->decimal('cena_jednostkowa', 8, 2);
+            $table->decimal('ilosc_na_stanie',8,2);
             $table->string('jednostka_miary');
             $table->decimal('max_ilosc', 8,2);
             $table->decimal('min_ilosc', 8, 2);

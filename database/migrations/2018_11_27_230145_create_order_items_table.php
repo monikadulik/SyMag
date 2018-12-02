@@ -14,11 +14,13 @@ class CreateOrderItemsTable extends Migration
     public function up()
     {
         Schema::create('order_items', function (Blueprint $table) {
-            $table->increments('id_pozycji');
-//            $table->foreign('id_zamowienia');
+            $table->increments('id');
+            $table->integer('id_zamowienia'); //foreign
 //            $table->foreign('id_towaru');
+
             $table->decimal('cena_jednostkowa');
             $table->decimal('ilosc');
+
             $table->timestamps();
         });
     }

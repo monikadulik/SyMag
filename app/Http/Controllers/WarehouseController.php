@@ -13,7 +13,7 @@ class WarehouseController extends Controller
     public function home(){
 
         $warehouse_list = Warehouse::query()->pluck('nazwa');
-        $commodities = Commodity::query()->select('numer_katalogowy', 'nazwa', 'cena_jednostkowa', 'jednostka_miary', 'kod_lokalizacji')
+        $commodities = Commodity::query()->select('numer_katalogowy', 'nazwa', 'cena_jednostkowa', 'ilosc_na_stanie', 'jednostka_miary', 'kod_lokalizacji')
             ->get();
 
         return view('warehouse', compact('warehouse_list'), compact('commodities'));
