@@ -11,64 +11,43 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('welcome');
-
-Route::get('alerts', function () {
-    return view('alerts');
-})->name('alerts');
-
-Route::get('reports', function () {
-    return view('reports');
-})->name('reports');
+Route::view('/', 'welcome')->name('welcome');
+Route::view('alerts', 'alerts')->name('alerts');
+Route::view('reports', 'reports')->name('reports');
+Route::view('addgoods', 'addgoods')->name('addgoods');
+Route::view('issuegoods', 'issuegoods')->name('issuegoods');
 
 
 Route::group(['prefix' => 'orders'], function (){
-    Route::get('/', function (){
-        return redirect('orders/inProgress');
-    });
-    Route::get('inProgress', [
-        'uses' => 'CreatePackController@showInProgress',
-        'as' => 'inProgress'
-    ]);
+    Route::redirect('/', 'orders/inProgress');
     Route::get('awaitingPayment', [
-        'uses' => 'CreatePackController@showAwaitingPayment',
+        'uses' => 'OrdersController@showAwaitingPayment',
         'as' => 'awaitingPayment'
     ]);
+    Route::get('inProgress', [
+        'uses' => 'OrdersController@showInProgress',
+        'as' => 'inProgress'
+    ]);
     Route::get('awaitingIssue', [
-        'uses' => 'CreatePackController@showAwaitingIssue',
+        'uses' => 'OrdersController@showAwaitingIssue',
         'as' => 'awaitingIssue'
     ]);
     Route::get('issued', [
-        'uses' => 'CreatePackController@showIssued',
+        'uses' => 'OrdersController@showIssued',
         'as' => 'issued'
     ]);
-    Route::get('createPackage', [
-        'uses' => 'CreatePackController@createPackage',
-        'as' => 'createPackage'
+    Route::get('{order}', [
+        'uses' => 'OrdersController@showPackage',
+        'as' => 'showPackage'
     ]);
-//    Route::get('{id}', [
-//        'uses' => 'CreatePackController@showPackage',
-//        'as' => 'showPackage'
-//    ]);
 });
 
 
 Route::group(['prefix' => 'warehouse'], function (){
-    Route::get('', 'WarehouseController@home')
+    Route::get('/', 'WarehouseController@home')
         ->name('warehouse');
     Route::get('search', [
         'uses' => 'WarehouseController@getFilteredCommodities',
         'as' => 'warehouse.search'
     ]);
 });
-
-
-Route::get('addgoods', function () {
-    return view('addgoods');
-})->name('addgoods');
-
-Route::get('issuegoods', function () {
-    return view('issuegoods');
-})->name('issuegoods');

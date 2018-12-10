@@ -6,7 +6,7 @@ use App\Order;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class CreatePackController extends Controller
+class OrdersController extends Controller
 {
     public function showAwaitingPayment(){
         $orders = Order::query()
@@ -44,29 +44,14 @@ class CreatePackController extends Controller
         return view('orders.issued', compact('orders'));
     }
 
-    public function createPackage(Request $request){
-
-        $order_id = $request->input('id');
-        $order = Order::find($order_id);
-
-//        $order_items = Order::find($order_id)->orderItems;
+    public function showPackage(Order $order)
+    {
         $order_items = DB::table('order_items')
             ->join('commodities', 'order_items.id_towaru', '=', 'commodities.id')
-            ->where('order_items.id_zamowienia','=',$order_id)
+            ->where('order_items.id_zamowienia', '=', $order->id)
             ->get();
-        $contractor = Order::find($order_id)->contractor;
+
+        $contractor = Order::findOrFail($order->id)->contractor;
         return view('createPackage', compact('order', 'contractor', 'order_items'));
     }
-
-//    public function showPackage($id){
-//        $order = Order::find($id);
-//
-//        $order_items = DB::table('order_items')
-//            ->join('commodities', 'order_items.id_towaru', '=', 'commodities.id')
-//            ->where('order_items.id_zamowienia','=', $id)
-//            ->get();
-//
-//        $contractor = Order::find($id)->contractor;
-//        return view('createPackage', compact('order', 'contractor', 'order_items'));
-//    }
 }

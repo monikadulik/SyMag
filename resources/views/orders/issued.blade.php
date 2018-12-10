@@ -20,18 +20,14 @@
         </thead>
         <tbody>
         @foreach($orders as $order)
-            <form method="get" action="{{ route('createPackage') }}">
-                <input type="hidden" name="id" value="{{ $order->id }}">
-                <tr>
-                    <td scope="row">{{ $loop->iteration }}</td>
-                    <td>{{ $order->data_zamowienia }}</td>
-                    <td>{{ $order->wartosc_zamowienia }}</td>
-                    <td>{{ $order->status_realizacji }}</td>
-                    <td>
-                        <button class="btn btn-outline-primary btn-sm disp-on-hov" type="submit">Szczegóły zamówienia</button>
-                    </td>
-                </tr>
-            </form>
+            <tr>
+                <td scope="row">{{ $loop->iteration }}</td>
+                <td>{{ $order->data_zamowienia }}</td>
+                <td>{{ $order->wartosc_zamowienia }}</td>
+                <td>{{ $order->status_realizacji }}</td>
+                <td><a class="btn btn-outline-primary btn-sm disp-on-hov" href="/orders/{{ $order->id }}">Szczegóły
+                        zamówienia</a></td>
+            </tr>
         @endforeach
         </tbody>
     </table>
