@@ -17,9 +17,9 @@ class WarehouseController extends Controller
             ->get();
         $commodities = Commodity::query()
             ->select('numer_katalogowy', 'nazwa', 'cena_jednostkowa', 'ilosc_na_stanie', 'jednostka_miary', 'kod_lokalizacji', 'id_magazynu')
-            ->get();
+            ->paginate(10);
 
-        return view('warehouse', compact('warehouses'), compact('commodities'));
+        return view('warehouse', compact('warehouses','commodities'));
     }
 
     public function getFilteredCommodities(Request $request){

@@ -1,57 +1,26 @@
-<!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layout')
 
-    <title>SyMag</title>
-
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link rel="stylesheet" href="{{ asset('css/custom.css') }}" type="text/css">
-</head>
-<body>
-@include('partials.header')
-
-<div class="container mt-3">
-    <div class="row">
+@section('content')
+<div class="row">
         <div class="col-md-8 order-md-1 mt-2">
-            <h4 class="text-muted mb-3 ml-2">Pozycje zamówienia nr: XXBC</h4>
+            <h4 class="text-muted mb-3 ml-2">Pozycje zamówienia nr: {{ $order->id }}</h4>
             <ul class="list-group">
-                <li class="list-group-item d-flex justify-content-between">
-                    <div class="mr-4">
-                        <h5 class="text-primary text-uppercase">nazwa produktu</h5>
-                        <h6>numer katalogowy</h6>
-                        <h6>kod lokalizacji</h6>
-                    </div>
-                    <div class="mr-4">
-                        <h6>Jednostka: SZTUKI</h6>
-                        <h5 class="d-inline-block mr-2">Ilosc: 3</h5>
-                        <small class="text-danger d-inline-block">Brakuje towarów!</small>
-                    </div>
-                    <div class="btn-group-vertical btn-group-toggle" data-toggle="buttons">
-                        <label class="btn btn-sm btn-outline-success">
-                            <input type="radio" name="options" id="option1" autocomplete="off"> Spakowano
-                        </label>
-                        <label class="btn btn-sm btn-outline-warning active">
-                            <input type="radio" name="options" id="option2" autocomplete="off"> W przygotowaniu
-                        </label>
-                        <label class="btn btn-sm btn-outline-danger">
-                            <input type="radio" name="options" id="option3" autocomplete="off"> Problem z towarem
-                        </label>
-                    </div>
-                </li>
+
+                @foreach( $order_items as $order_item)
 
                 <li class="list-group-item d-flex justify-content-between">
-                    <div class="mr-4">
-                        <h5 class="text-primary text-uppercase">nazwa produktu</h5>
-                        <h6>numer katalogowy</h6>
-                        <h6>kod lokalizacji</h6>
+                    <div class="mr-4 col-md-5">
+                        <small class="text-muted">Nazwa towaru</small>
+                        <h5 class="text-primary text-uppercase">{{ $order_item->nazwa }}</h5>
+                        <small class="text-muted">Numer katalogowy</small>
+                        <h6>{{ $order_item->numer_katalogowy }}</h6>
+                        <small class="text-muted">Kod lokalizacji</small>
+                        <h6>{{ $order_item->kod_lokalizacji }}</h6>
                     </div>
-                    <div class="mr-4">
-                        <h6>Jednostka: SZTUKI</h6>
-                        <h5 class="d-inline-block mr-2">Ilosc: 3</h5>
-                        <small class="text-danger d-inline-block">Brakuje towarów!</small>
+                    <div class="mr-4 mt-4">
+                        <h6>Jednostka: {{ $order_item->jednostka_miary }}</h6>
+                        <h5 class="d-inline-block mr-2">Ilosc: {{$order_item->ilosc}}</h5>
+                        {{--<small class="text-danger d-inline-block">Brakuje towarów!</small>--}}
                     </div>
                     <div class="btn-group-vertical btn-group-toggle" data-toggle="buttons">
                         <label class="btn btn-sm btn-outline-success">
@@ -65,34 +34,10 @@
                         </label>
                     </div>
                 </li>
+                @endforeach
 
-                <li class="list-group-item d-flex justify-content-between">
-                    <div class="mr-4">
-                        <h5 class="text-primary text-uppercase">nazwa produktu</h5>
-                        <h6>numer katalogowy</h6>
-                        <h6>kod lokalizacji</h6>
-                    </div>
-                    <div class="mr-4">
-                        <h6>Jednostka: SZTUKI</h6>
-                        <h5 class="d-inline-block mr-2">Ilosc: 3</h5>
-                        <small class="text-danger d-inline-block">Brakuje towarów!</small>
-                    </div>
-                    <div class="btn-group-vertical btn-group-toggle" data-toggle="buttons">
-                        <label class="btn btn-sm btn-outline-success">
-                            <input type="radio" name="options" id="option1" autocomplete="off"> Spakowano
-                        </label>
-                        <label class="btn btn-sm btn-outline-warning active">
-                            <input type="radio" name="options" id="option2" autocomplete="off"> W przygotowaniu
-                        </label>
-                        <label class="btn btn-sm btn-outline-danger">
-                            <input type="radio" name="options" id="option3" autocomplete="off"> Problem z towarem
-                        </label>
-                    </div>
-                </li>
             </ul>
         </div>
-
-
 
 
 
@@ -102,32 +47,32 @@
             <ul class="list-group">
                 <li class="list-group-item">
                     <div>
-                        <h6 class="my-0">Kontrahent Sp. z o.o.</h6>
+                        <h6 class="my-0">{{ $contractor->nazwa }}</h6>
                         <small class="text-muted">Nazwa kontrahenta</small>
                     </div>
                 </li>
                 <li class="list-group-item">
                     <div>
-                        <h6 class="my-0">ul. Kontrahenta 00</h6>
-                        <h6 class="my-0">XX-XXX Bielsko</h6>
+                        <h6 class="my-0">{{ $contractor->adres1 }}</h6>
+                        <h6 class="my-0">{{ $contractor->adres2 }}</h6>
                         <small class="text-muted">Adres wysyłki</small>
                     </div>
                 </li>
                 <li class="list-group-item">
                     <div>
-                        <h6 class="my-0">kontrahent@symag.com</h6>
+                        <h6 class="my-0">{{ $contractor->adres_email }}</h6>
                         <small class="text-muted">Adres e-mail</small>
                     </div>
                 </li>
                 <li class="list-group-item">
                     <div>
-                        <h6 class="my-0">000-000-000</h6>
+                        <h6 class="my-0">{{ $contractor->telefon }}</h6>
                         <small class="text-muted">Telefon kontaktowy</small>
                     </div>
                 </li>
                 <li class="list-group-item">
                     <div>
-                        <h6 class="my-0">Kurier DHL</h6>
+                        <h6 class="my-0">{{ $order->sposob_dostawy }}</h6>
                         <small class="text-muted">Wybrany sposób dostawy</small>
                     </div>
                 </li>
@@ -135,17 +80,4 @@
 
         </div>
     </div>
-</div>
-
-
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
-        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-        crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
-        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-        crossorigin="anonymous"></script>
-</body>
-</html>
+@endsection

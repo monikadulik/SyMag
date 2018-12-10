@@ -25,6 +25,9 @@ Route::get('reports', function () {
 
 
 Route::group(['prefix' => 'orders'], function (){
+    Route::get('/', function (){
+        return redirect('orders/inProgress');
+    });
     Route::get('inProgress', [
         'uses' => 'CreatePackController@showInProgress',
         'as' => 'inProgress'
@@ -45,11 +48,12 @@ Route::group(['prefix' => 'orders'], function (){
         'uses' => 'CreatePackController@createPackage',
         'as' => 'createPackage'
     ]);
-//    Route::get('createPackage/{package_id}', [
-//        'uses' => 'CreatePackController@createPackage',
-//        'as' => 'createPackage'
+//    Route::get('{id}', [
+//        'uses' => 'CreatePackController@showPackage',
+//        'as' => 'showPackage'
 //    ]);
 });
+
 
 Route::group(['prefix' => 'warehouse'], function (){
     Route::get('', 'WarehouseController@home')
