@@ -14,7 +14,8 @@ class OrdersController extends Controller
             ->where('status_realizacji','=','OCZEKIWANIE NA PŁATNOŚĆ')
             ->orderBy('data_zamowienia')
             ->get();
-        return view('orders.awaitingPayment', compact('orders'));
+        $state = 0;
+        return view('orders', compact('orders', 'state'));
     }
 
     public function showInProgress(){
@@ -23,7 +24,8 @@ class OrdersController extends Controller
             ->where('status_realizacji','=','W REALIZACJI')
             ->orderBy('data_zamowienia')
             ->get();
-        return view('orders.inProgress', compact('orders'));
+        $state = 1;
+        return view('orders', compact('orders', 'state'));
     }
 
     public function showAwaitingIssue(){
@@ -32,7 +34,8 @@ class OrdersController extends Controller
             ->where('status_realizacji','=','CZEKA NA WYDANIE')
             ->orderBy('data_zamowienia')
             ->get();
-        return view('orders.awaitingIssue', compact('orders'));
+        $state = 2;
+        return view('orders', compact('orders', 'state'));
     }
 
     public function showIssued(){
@@ -41,10 +44,11 @@ class OrdersController extends Controller
             ->where('status_realizacji','=','WYDANO')
             ->orderBy('data_zamowienia')
             ->get();
-        return view('orders.issued', compact('orders'));
+        $state = 3;
+        return view('orders', compact('orders', 'state'));
     }
 
-    public function showPackage(Order $order)
+    public function show(Order $order)
     {
         $order_items = DB::table('order_items')
             ->join('commodities', 'order_items.id_towaru', '=', 'commodities.id')

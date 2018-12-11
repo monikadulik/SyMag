@@ -37,8 +37,8 @@ Route::group(['prefix' => 'orders'], function (){
         'as' => 'issued'
     ]);
     Route::get('{order}', [
-        'uses' => 'OrdersController@showPackage',
-        'as' => 'showPackage'
+        'uses' => 'OrdersController@show',
+        'as' => 'show'
     ]);
 });
 
