@@ -12,11 +12,21 @@
 */
 
 Route::view('/', 'welcome')->name('welcome');
-Route::view('alerts', 'alerts')->name('alerts');
 Route::view('reports', 'reports')->name('reports');
 Route::view('addgoods', 'addgoods')->name('addgoods');
 Route::view('issuegoods', 'issuegoods')->name('issuegoods');
 
+
+Route::group(['prefix' => 'alerts'], function(){
+    Route::get('/', [
+        'uses' => 'AlertsController@show',
+        'as' => 'alerts'
+    ]);
+    Route::get('/new', [
+        'uses' => 'AlertsController@new',
+        'as' => 'newAlert'
+    ]);
+});
 
 Route::group(['prefix' => 'orders'], function (){
     Route::redirect('/', 'orders/inProgress');
