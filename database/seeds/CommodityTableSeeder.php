@@ -28,6 +28,22 @@ class CommodityTableSeeder extends Seeder
         $commodity->save();
 
         $commodity = new \App\Commodity([
+            'id_magazynu' => '2',
+            'numer_katalogowy' => 'B_01XC_AD4_002_C1',
+            'nazwa' => 'kalka maszynowa',
+            'cena_jednostkowa' => '0.5',
+            'ilosc_na_stanie' => '47',
+            'jednostka_miary' => 'SZTUKI',
+            'max_ilosc' => 0,
+            'min_ilosc' => 0,
+            'data_przyjęcia' => '2019-01-04',
+            'czy_ostrzegac_o_nadmiarze' => false,
+            'czy_ostrzegac_o_niedomiarze' => false,
+            'kod_lokalizacji' => 'MAG_KAT_01B'
+        ]);
+        $commodity->save();
+
+        $commodity = new \App\Commodity([
             'id_magazynu' => '1',
             'numer_katalogowy' => 'B_01BC_AD4_002_C1',
             'nazwa' => 'papier samokopiujący',

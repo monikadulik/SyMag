@@ -136,7 +136,7 @@
             <div class="row m-3 justify-content-between">
             <h5 class="text-muted">Ostrzeżenia</h5>
 
-            <a href="{{ route('newAlert') }}" class="btn btn-sm btn-primary" type="button">Dodaj alert</a>
+            <a href="{{ route('alerts.create') }}" class="btn btn-sm btn-primary" type="button">Dodaj alert</a>
             </div>
             <div class="card border-warning mb-3 p-3 shadow-sm">
                 <div>

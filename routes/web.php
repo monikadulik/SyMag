@@ -23,8 +23,12 @@ Route::group(['prefix' => 'alerts'], function(){
         'as' => 'alerts'
     ]);
     Route::get('/new', [
-        'uses' => 'AlertsController@new',
-        'as' => 'newAlert'
+        'uses' => 'AlertsController@getNew',
+        'as' => 'alerts.create'
+    ]);
+    Route::post('/new', [
+        'uses' => 'AlertsController@postNew',
+        'as' => 'alerts.create'
     ]);
 });
 

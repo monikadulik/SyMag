@@ -45,7 +45,6 @@ class WarehouseController extends Controller
             ->get();
 
         return view('warehouseSearch',
-            compact('warehouses', 'commodities', 'ware_id', 'comm_name', 'cat_num')
-        )->with($comm_name, 'comm_name');
+            compact('warehouses', 'commodities', 'ware_id', 'comm_name', 'cat_num'));
     }
 }
