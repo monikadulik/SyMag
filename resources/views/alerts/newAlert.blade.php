@@ -7,7 +7,7 @@
         <div class="card border-dark p-5">
             <form method="post" action="{{ route('alerts.create') }}">
 
-                {{ csrf_field() }}
+                @csrf
 
                 <div class="form-group">
                     <label for="catalogNumber">Numer katalogowy produktu</label>

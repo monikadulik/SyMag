@@ -33,3 +33,13 @@ System powstaje w formie aplikacji webowej z użyciem frameworka _Laravel_
 - __Generacja raportów__ - Użytkownik ma możliwość wygenerowania raportu dotyczącego rotacji towarów na magazynie oraz wydajności pracowników.
 
 - __Alerty informacyjne__ - po uprzedniej konfiguracji, system może powiadamiać użytkowników o kończących się zasobach magazynu. Taka funkcjonalność pozwala z wyprzedzeniem zamówić będące na wyczerpaniu materiały i uniknąć przerw w łańcuchu dostaw. System może także powiadamiać o występującej nadwyżce konkretnych produktów w celu wstrzymania kolejnych ich dostaw.
+
+</br>
+<p align="center">
+<img src="https://i.ibb.co/5kJj7ST/Zrzut-ekranu-z-2019-01-05-01-25-58.png">
+</p>
+</br></br>
+<p align="center">
+<img src="https://i.ibb.co/PYQrvkG/Zrzut-ekranu-z-2019-01-05-01-31-19.png">
+</p>
+</br></br>

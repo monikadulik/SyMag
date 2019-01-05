@@ -22,6 +22,10 @@ Route::group(['prefix' => 'alerts'], function(){
         'uses' => 'AlertsController@show',
         'as' => 'alerts'
     ]);
+    Route::get('/search', [
+        'uses' => 'AlertsController@search',
+        'as' => 'alerts.search'
+    ]);
     Route::get('/new', [
         'uses' => 'AlertsController@getNew',
         'as' => 'alerts.create'

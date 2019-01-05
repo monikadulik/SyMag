@@ -5,6 +5,18 @@
     justify-content: center;
 }
 
+.overflow-1{
+    height: calc(100vh - 215px);
+    overflow-y: scroll;
+    overflow: auto;
+}
+
+.overflow-2{
+    height: calc(100vh - 160px);
+    overflow-y: scroll;
+    overflow: auto;
+}
+
 th {
     position: sticky;
     top: 0;
