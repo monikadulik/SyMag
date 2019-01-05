@@ -11,6 +11,8 @@
 |
 */
 
+use Illuminate\Support\Facades\Route;
+
 Route::view('/', 'welcome')->name('welcome');
 Route::view('reports', 'reports')->name('reports');
 Route::view('addgoods', 'addgoods')->name('addgoods');
@@ -33,6 +35,18 @@ Route::group(['prefix' => 'alerts'], function(){
     Route::post('/new', [
         'uses' => 'AlertsController@postNew',
         'as' => 'alerts.create'
+    ]);
+    Route::post('/delete', [
+        'uses' => 'AlertsController@delete',
+        'as' => 'alerts.delete'
+    ]);
+    Route::get('/{commodity}', [
+        'uses' => 'AlertsController@getEdit',
+        'as' => 'alerts.edit'
+    ]);
+    Route::post('/edit', [
+        'uses' => 'AlertsController@postEdit',
+        'as' => 'alerts.edit'
     ]);
 });
 

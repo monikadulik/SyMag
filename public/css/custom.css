@@ -5,6 +5,18 @@
     justify-content: center;
 }
 
+.mt-10rem {
+    margin-top: 10rem;
+}
+
+.ml-8rem {
+    margin-left: 8rem;
+}
+
+.move-up {
+    margin-top: -4rem;
+}
+
 .overflow-1{
     height: calc(100vh - 215px);
     overflow-y: scroll;

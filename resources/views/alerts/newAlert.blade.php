@@ -25,7 +25,7 @@
                 </div>
 
                 <div class="form-group form-check">
-                    <input type="checkbox" class="form-check-input" id="alertMax"
+                    <input type="checkbox" class="form-check-input" id="alertMax" name="alertMax"
                            onchange="document.getElementById('maxAm').disabled = !this.checked;
                                      document.getElementById('maxAm').value = '';">
                     <label class="form-check-label" for="alertMax">Ostrzegaj o nadmiarze towaru</label>
@@ -36,9 +36,9 @@
                 </div>
 
                 <div class="form-group form-check">
-                    <input type="checkbox" class="form-check-input" id="alertMin"
+                    <input type="checkbox" class="form-check-input" id="alertMin" name="alertMin"
                            onchange="document.getElementById('minAm').disabled = !this.checked;
-                                     document.getElementById('maxAm').value = '';">
+                                     document.getElementById('minAm').value = '';">
                     <label class="form-check-label" for="alertMin">Ostrzegaj o niskich ilościach towaru</label>
                 </div>
                 <div class="form-group ml-4 mr-4">

@@ -16,45 +16,60 @@
                 </div>
             </form>
 
-            <h5 class="text-muted m-3">Założone alerty @if($cat_num != '' )i ostrzeżenia dla {{ $cat_num }} @endif</h5>
+            <div class="row justify-content-between m-3">
+                @if($cat_num != '' )
+                    <h5 class="text-muted">Założone alerty dla {{ $cat_num }}</h5>
+                    <a class="btn btn-danger" type="button" href="{{ route('alerts') }}">Usuń filtrowanie</a>
+                @else
+                    <h5 class="text-muted">Założone alerty</h5>
+                @endif
+            </div>
+
             <div class="overflow-1">
-                @foreach($alerts as $alert)
+                @foreach($alerted_commodities as $commodity)
                     <div class="card mb-2 p-3">
                         <div class="row">
                             <div class="col-md-6 mr-auto">
-                                <div>Numer katalogowy: {{ $alert->numer_katalogowy }}</div>
-                                <div>Nazwa towaru: {{ $alert->nazwa }}</div>
+                                <div>Numer katalogowy: {{ $commodity->numer_katalogowy }}</div>
+                                <div>Nazwa towaru: {{ $commodity->nazwa }}</div>
                             </div>
                             <button class="btn btn-sm btn-outline-info h-75 mr-1" type="button" data-toggle="collapse"
                                     data-target="#info{{ $loop->index }}">Info
                             </button>
-                            <button class="btn btn-sm btn-outline-danger h-75 mr-1" type="button">Usuń</button>
-                            <button class="btn btn-sm btn-outline-dark h-75 mr-2" type="button">Edytuj</button>
-
+                            <form method="post" action="{{ route('alerts.delete') }}">
+                                @csrf
+                                <input type="hidden" name="comm_id" value="{{ $commodity->id }}">
+                                <button class="btn btn-sm btn-outline-danger h-75 mr-1" type="submit">Usuń</button>
+                            </form>
+                            <a class="btn btn-sm btn-outline-dark h-75 mr-2" href="/alerts/{{ $commodity->id }}">Edytuj</a>
                         </div>
                         <div class="collapse" id="info{{ $loop->index }}">
                             <hr>
                             <div class="row">
                                 <div class="col-md-4">
                                     <small class="text-muted">Magazyn:</small>
-                                    <div class="d-inline">{{ $alert->kod_lokalizacji }}</div>
+                                    <div class="d-inline">{{ $commodity->kod_lokalizacji }}</div>
                                 </div>
                                 <div class="col-md-4">
                                     <small class="text-muted">Na stanie:</small>
-                                    <div class="d-inline">{{ $alert->ilosc_na_stanie }}</div>
+                                    <div class="d-inline">{{ $commodity->ilosc_na_stanie }}</div>
                                 </div>
                             </div>
                             <div class="row">
-                                @if($alert->czy_ostrzegac_o_niedomiarze)
+                                @if($commodity->czy_ostrzegac_o_niedomiarze)
                                     <div class="col-md-4">
                                         <small class="text-danger">Minimalna ilość:</small>
-                                        <div class="d-inline">{{ $alert->min_ilosc }}</div>
+                                        <div class="d-inline">{{ $commodity->min_ilosc }}</div>
+                                    </div>
+                                @else
+                                    <div class="col-md-4">
+                                        <p></p>
                                     </div>
                                 @endif
-                                @if($alert->czy_ostrzegac_o_nadmiarze)
+                                @if($commodity->czy_ostrzegac_o_nadmiarze)
                                     <div class="col-md-4">
                                         <small class="text-success">Maksymalna ilość:</small>
-                                        <div class="d-inline">{{ $alert->max_ilosc }}</div>
+                                        <div class="d-inline">{{ $commodity->max_ilosc }}</div>
                                     </div>
                                 @endif
                             </div>
@@ -70,12 +85,16 @@
 
         <div class="col-md-4 order-md-1">
             <div class="row m-3 justify-content-between">
-                <h5 class="text-muted">Ostrzeżenia</h5>
-                <a href="{{ route('alerts.create') }}" class="btn btn-sm btn-primary" type="button">Dodaj alert</a>
+                @if($cat_num != '' )
+                    <h5 class="text-muted">Ostrzeżenia dla {{ $cat_num }}</h5>
+                @else
+                    <h5 class="text-muted">Ostrzeżenia</h5>
+                    <a href="{{ route('alerts.create') }}" class="btn btn-sm btn-primary" type="button">Dodaj alert</a>
+                @endif
             </div>
 
             <div class="overflow-2">
-                @foreach($alerts as $alert)
+                @foreach($alerted_commodities as $alert)
                     @if( $alert->czy_ostrzegac_o_nadmiarze && ( $alert->ilosc_na_stanie > $alert->max_ilosc ) )
                         <div class="card border-warning mb-2 p-3 shadow-sm">
                             <h6 class="text-danger text-center">NADMIAR TOWARU</h6>
