@@ -17,7 +17,7 @@ class WarehouseController extends Controller
             ->get();
         $commodities = Commodity::query()
             ->select('numer_katalogowy', 'nazwa', 'cena_jednostkowa', 'ilosc_na_stanie', 'jednostka_miary', 'kod_lokalizacji', 'id_magazynu')
-            ->paginate(10);
+            ->paginate(9);
 
         return view('warehouse.show', compact('warehouses','commodities'));
     }
@@ -48,19 +48,6 @@ class WarehouseController extends Controller
             compact('warehouses', 'commodities', 'ware_id', 'comm_name', 'cat_num'));
     }
 
-    public function getCommodityAcceptance(){
-
-        $commodities = Commodity::query()
-            ->select('id', 'id_magazynu', 'numer_katalogowy', 'nazwa', 'jednostka_miary')
-            ->get();
-
-        $warehouses = Warehouse::query()
-            ->select('id', 'nazwa')
-            ->get();
-
-        return view('warehouse.acceptgoods',
-            compact('warehouses', 'commodities'));
-    }
 
     public function getCommodityIssuance(){
 
@@ -106,18 +93,71 @@ class WarehouseController extends Controller
         return redirect()->route('warehouse');
     }
 
+    public function getCommodityAcceptance(){
+
+        $commodities = Commodity::query()
+            ->select('id', 'id_magazynu', 'numer_katalogowy', 'nazwa', 'jednostka_miary')
+            ->get();
+
+        $warehouses = Warehouse::query()
+            ->select('id', 'nazwa')
+            ->get();
+
+        return view('warehouse.acceptgoods',
+            compact('warehouses', 'commodities'));
+    }
+
     public function postCommodityAcceptance(Request $request){
 
-        return view('warehouse.confaccept',
-            compact('commodity'));
+        $catalog_number = $request->catalogNumber;
+        $warehouse_id = $request->warehouse;
+
+        $commodity = Commodity::query()
+            ->select('id', 'id_magazynu', 'numer_katalogowy', 'nazwa', 'ilosc_na_stanie',
+                'cena_jednostkowa', 'jednostka_miary', 'kod_lokalizacji')
+            ->where('numer_katalogowy','=', $catalog_number)
+            ->where('id_magazynu','=', $warehouse_id)
+            ->first();
+
+        if(is_null($commodity)){
+            return view('warehouse.newGoods',
+                compact( 'catalog_number', 'warehouse_id'));
+        } else {
+            return view('warehouse.addGoods',
+                compact('commodity'));
+        }
     }
 
-    public function getConfirmAcceptance(){
-        return;
+
+    public function postConfirmAcceptanceNew(Request $request){
+
+        $commodity = new Commodity;
+
+        $commodity->id_magazynu = $request->warehouse;
+        $commodity->numer_katalogowy = $request->catalogNumber;
+        $commodity->nazwa = $request->name;
+        $commodity->cena_jednostkowa = $request->price;
+        $commodity->ilosc_na_stanie = $request->quantity;
+        $commodity->jednostka_miary = $request->unit;
+        $commodity->kod_lokalizacji = \App\Warehouse::find($request->warehouse)->nazwa;
+        $commodity->max_ilosc = 0;
+        $commodity->min_ilosc = 0;
+        $commodity->czy_ostrzegac_o_nadmiarze = 0;
+        $commodity->czy_ostrzegac_o_niedomiarze = 0;
+
+        $commodity->save();
+
+        return redirect()->route('warehouse');
     }
 
-    public function postConfirmAcceptance(Request $request){
-        return;
-    }
+    public function postConfirmAcceptanceAdd(Request $request){
 
+        $commodity = Commodity::find($request->comm_id);
+
+        $commodity->ilosc_na_stanie = $commodity->ilosc_na_stanie + $request->quantity;
+
+        $commodity->save();
+
+        return redirect()->route('warehouse');
+    }
 }

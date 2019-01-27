@@ -20,7 +20,6 @@ class CommodityTableSeeder extends Seeder
             'jednostka_miary' => 'SZTUKI',
             'max_ilosc' => 0,
             'min_ilosc' => 0,
-            'data_przyjęcia' => '2018-11-30',
             'czy_ostrzegac_o_nadmiarze' => false,
             'czy_ostrzegac_o_niedomiarze' => false,
             'kod_lokalizacji' => 'MAG_KAT_01A'
@@ -36,7 +35,6 @@ class CommodityTableSeeder extends Seeder
             'jednostka_miary' => 'SZTUKI',
             'max_ilosc' => 0,
             'min_ilosc' => 0,
-            'data_przyjęcia' => '2019-01-04',
             'czy_ostrzegac_o_nadmiarze' => false,
             'czy_ostrzegac_o_niedomiarze' => false,
             'kod_lokalizacji' => 'MAG_KAT_01B'
@@ -52,7 +50,6 @@ class CommodityTableSeeder extends Seeder
             'jednostka_miary' => 'SZTUKI',
             'max_ilosc' => 0,
             'min_ilosc' => 0,
-            'data_przyjęcia' => '2018-11-30',
             'czy_ostrzegac_o_nadmiarze' => false,
             'czy_ostrzegac_o_niedomiarze' => false,
             'kod_lokalizacji' => 'MAG_KAT_01A'
@@ -68,7 +65,6 @@ class CommodityTableSeeder extends Seeder
             'jednostka_miary' => 'SZTUKI',
             'max_ilosc' => 0,
             'min_ilosc' => 0,
-            'data_przyjęcia' => '2018-11-30',
             'czy_ostrzegac_o_nadmiarze' => false,
             'czy_ostrzegac_o_niedomiarze' => false,
             'kod_lokalizacji' => 'MAG_KAT_01A'
@@ -84,7 +80,6 @@ class CommodityTableSeeder extends Seeder
             'jednostka_miary' => 'SZTUKI',
             'max_ilosc' => 0,
             'min_ilosc' => 0,
-            'data_przyjęcia' => '2018-11-30',
             'czy_ostrzegac_o_nadmiarze' => false,
             'czy_ostrzegac_o_niedomiarze' => false,
             'kod_lokalizacji' => 'MAG_KAT_01A'
@@ -100,7 +95,6 @@ class CommodityTableSeeder extends Seeder
             'jednostka_miary' => 'SZTUKI',
             'max_ilosc' => 0,
             'min_ilosc' => 0,
-            'data_przyjęcia' => '2018-11-30',
             'czy_ostrzegac_o_nadmiarze' => false,
             'czy_ostrzegac_o_niedomiarze' => false,
             'kod_lokalizacji' => 'MAG_KAT_01B'
@@ -116,7 +110,6 @@ class CommodityTableSeeder extends Seeder
             'jednostka_miary' => 'SZTUKI',
             'max_ilosc' => 0,
             'min_ilosc' => 0,
-            'data_przyjęcia' => '2018-11-30',
             'czy_ostrzegac_o_nadmiarze' => false,
             'czy_ostrzegac_o_niedomiarze' => false,
             'kod_lokalizacji' => 'MAG_KAT_01B'
@@ -132,7 +125,6 @@ class CommodityTableSeeder extends Seeder
             'jednostka_miary' => 'SZTUKI',
             'max_ilosc' => 0,
             'min_ilosc' => 0,
-            'data_przyjęcia' => '2018-11-30',
             'czy_ostrzegac_o_nadmiarze' => false,
             'czy_ostrzegac_o_niedomiarze' => false,
             'kod_lokalizacji' => 'MAG_KAT_01B'
@@ -148,7 +140,6 @@ class CommodityTableSeeder extends Seeder
             'jednostka_miary' => 'SZTUKI',
             'max_ilosc' => 0,
             'min_ilosc' => 0,
-            'data_przyjęcia' => '2018-11-30',
             'czy_ostrzegac_o_nadmiarze' => false,
             'czy_ostrzegac_o_niedomiarze' => false,
             'kod_lokalizacji' => 'MAG_ZAW_01A'
@@ -164,7 +155,6 @@ class CommodityTableSeeder extends Seeder
             'jednostka_miary' => 'SZTUKI',
             'max_ilosc' => 0,
             'min_ilosc' => 0,
-            'data_przyjęcia' => '2018-11-30',
             'czy_ostrzegac_o_nadmiarze' => false,
             'czy_ostrzegac_o_niedomiarze' => false,
             'kod_lokalizacji' => 'MAG_ZAW_01A'
@@ -180,7 +170,6 @@ class CommodityTableSeeder extends Seeder
             'jednostka_miary' => 'SZTUKI',
             'max_ilosc' => 0,
             'min_ilosc' => 0,
-            'data_przyjęcia' => '2018-11-30',
             'czy_ostrzegac_o_nadmiarze' => false,
             'czy_ostrzegac_o_niedomiarze' => false,
             'kod_lokalizacji' => 'MAG_KAT_01A'
@@ -196,7 +185,6 @@ class CommodityTableSeeder extends Seeder
             'jednostka_miary' => 'SZTUKI',
             'max_ilosc' => 0,
             'min_ilosc' => 0,
-            'data_przyjęcia' => '2018-11-30',
             'czy_ostrzegac_o_nadmiarze' => false,
             'czy_ostrzegac_o_niedomiarze' => false,
             'kod_lokalizacji' => 'MAG_ZAW_01A'
@@ -212,7 +200,6 @@ class CommodityTableSeeder extends Seeder
             'jednostka_miary' => 'SZTUKI',
             'max_ilosc' => 0,
             'min_ilosc' => 0,
-            'data_przyjęcia' => '2018-11-30',
             'czy_ostrzegac_o_nadmiarze' => false,
             'czy_ostrzegac_o_niedomiarze' => false,
             'kod_lokalizacji' => 'MAG_ZAW_01A'
@@ -228,7 +215,6 @@ class CommodityTableSeeder extends Seeder
             'jednostka_miary' => 'SZTUKI',
             'max_ilosc' => 0,
             'min_ilosc' => 0,
-            'data_przyjęcia' => '2018-11-30',
             'czy_ostrzegac_o_nadmiarze' => false,
             'czy_ostrzegac_o_niedomiarze' => false,
             'kod_lokalizacji' => 'MAG_SOS_01A'
@@ -244,7 +230,6 @@ class CommodityTableSeeder extends Seeder
             'jednostka_miary' => 'SZTUKI',
             'max_ilosc' => 0,
             'min_ilosc' => 0,
-            'data_przyjęcia' => '2018-11-30',
             'czy_ostrzegac_o_nadmiarze' => false,
             'czy_ostrzegac_o_niedomiarze' => false,
             'kod_lokalizacji' => 'MAG_SOS_01A'
@@ -260,7 +245,6 @@ class CommodityTableSeeder extends Seeder
             'jednostka_miary' => 'SZTUKI',
             'max_ilosc' => 0,
             'min_ilosc' => 0,
-            'data_przyjęcia' => '2018-11-30',
             'czy_ostrzegac_o_nadmiarze' => false,
             'czy_ostrzegac_o_niedomiarze' => false,
             'kod_lokalizacji' => 'MAG_SOS_01A'
@@ -276,7 +260,6 @@ class CommodityTableSeeder extends Seeder
             'jednostka_miary' => 'SZTUKI',
             'max_ilosc' => 0,
             'min_ilosc' => 0,
-            'data_przyjęcia' => '2018-11-30',
             'czy_ostrzegac_o_nadmiarze' => false,
             'czy_ostrzegac_o_niedomiarze' => false,
             'kod_lokalizacji' => 'MAG_SOS_01A'
@@ -292,7 +275,6 @@ class CommodityTableSeeder extends Seeder
             'jednostka_miary' => 'SZTUKI',
             'max_ilosc' => 0,
             'min_ilosc' => 0,
-            'data_przyjęcia' => '2018-11-30',
             'czy_ostrzegac_o_nadmiarze' => false,
             'czy_ostrzegac_o_niedomiarze' => false,
             'kod_lokalizacji' => 'MAG_SOS_01A'
@@ -308,7 +290,6 @@ class CommodityTableSeeder extends Seeder
             'jednostka_miary' => 'SZTUKI',
             'max_ilosc' => 0,
             'min_ilosc' => 0,
-            'data_przyjęcia' => '2018-11-30',
             'czy_ostrzegac_o_nadmiarze' => false,
             'czy_ostrzegac_o_niedomiarze' => false,
             'kod_lokalizacji' => 'MAG_SOS_01A'
@@ -324,7 +305,6 @@ class CommodityTableSeeder extends Seeder
             'jednostka_miary' => 'SZTUKI',
             'max_ilosc' => 0,
             'min_ilosc' => 0,
-            'data_przyjęcia' => '2018-11-30',
             'czy_ostrzegac_o_nadmiarze' => false,
             'czy_ostrzegac_o_niedomiarze' => false,
             'kod_lokalizacji' => 'MAG_SOS_01A'
@@ -340,7 +320,6 @@ class CommodityTableSeeder extends Seeder
             'jednostka_miary' => 'SZTUKI',
             'max_ilosc' => 0,
             'min_ilosc' => 0,
-            'data_przyjęcia' => '2018-11-30',
             'czy_ostrzegac_o_nadmiarze' => false,
             'czy_ostrzegac_o_niedomiarze' => false,
             'kod_lokalizacji' => 'MAG_SOS_01A'
@@ -356,7 +335,6 @@ class CommodityTableSeeder extends Seeder
             'jednostka_miary' => 'SZTUKI',
             'max_ilosc' => 0,
             'min_ilosc' => 0,
-            'data_przyjęcia' => '2018-11-30',
             'czy_ostrzegac_o_nadmiarze' => false,
             'czy_ostrzegac_o_niedomiarze' => false,
             'kod_lokalizacji' => 'MAG_SOS_01A'
@@ -372,7 +350,6 @@ class CommodityTableSeeder extends Seeder
             'jednostka_miary' => 'SZTUKI',
             'max_ilosc' => 0,
             'min_ilosc' => 0,
-            'data_przyjęcia' => '2018-11-30',
             'czy_ostrzegac_o_nadmiarze' => false,
             'czy_ostrzegac_o_niedomiarze' => false,
             'kod_lokalizacji' => 'MAG_SOS_01A'

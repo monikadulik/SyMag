@@ -80,6 +80,8 @@ Route::group(['prefix' => 'warehouse'], function (){
         'uses' => 'WarehouseController@getFilteredCommodities',
         'as' => 'warehouse.search'
     ]);
+
+
     Route::get('acceptgoods', [
         'uses' => 'WarehouseController@getCommodityAcceptance',
         'as' => 'warehouse.acceptgoods'
@@ -88,6 +90,16 @@ Route::group(['prefix' => 'warehouse'], function (){
         'uses' => 'WarehouseController@postCommodityAcceptance',
         'as' => 'warehouse.acceptgoods'
     ]);
+    Route::post('confirmacceptanceNew', [
+        'uses' => 'WarehouseController@postConfirmAcceptanceNew',
+        'as' => 'warehouse.confacceptNew'
+    ]);
+    Route::post('confirmacceptanceAdd', [
+        'uses' => 'WarehouseController@postConfirmAcceptanceAdd',
+        'as' => 'warehouse.confacceptAdd'
+    ]);
+
+
     Route::get('issuegoods', [
         'uses' => 'WarehouseController@getCommodityIssuance',
         'as' => 'warehouse.issuegoods'

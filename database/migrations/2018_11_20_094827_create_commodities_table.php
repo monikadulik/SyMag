@@ -24,7 +24,6 @@ class CreateCommoditiesTable extends Migration
             $table->string('jednostka_miary');
             $table->decimal('max_ilosc', 8,2);
             $table->decimal('min_ilosc', 8, 2);
-            $table->dateTime('data_przyjęcia');
             $table->boolean('czy_ostrzegac_o_nadmiarze');
             $table->boolean('czy_ostrzegac_o_niedomiarze');
             $table->string('kod_lokalizacji');
