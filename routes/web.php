@@ -15,8 +15,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'welcome')->name('welcome');
 Route::view('reports', 'reports')->name('reports');
-Route::view('addgoods', 'addgoods')->name('addgoods');
-Route::view('issuegoods', 'issuegoods')->name('issuegoods');
 
 
 Route::group(['prefix' => 'alerts'], function(){
@@ -81,5 +79,25 @@ Route::group(['prefix' => 'warehouse'], function (){
     Route::get('search', [
         'uses' => 'WarehouseController@getFilteredCommodities',
         'as' => 'warehouse.search'
+    ]);
+    Route::get('acceptgoods', [
+        'uses' => 'WarehouseController@getCommodityAcceptance',
+        'as' => 'warehouse.acceptgoods'
+    ]);
+    Route::post('acceptgoods', [
+        'uses' => 'WarehouseController@postCommodityAcceptance',
+        'as' => 'warehouse.acceptgoods'
+    ]);
+    Route::get('issuegoods', [
+        'uses' => 'WarehouseController@getCommodityIssuance',
+        'as' => 'warehouse.issuegoods'
+    ]);
+    Route::post('issuegoods', [
+        'uses' => 'WarehouseController@postCommodityIssuance',
+        'as' => 'warehouse.issuegoods'
+    ]);
+    Route::post('confirmissuance', [
+        'uses' => 'WarehouseController@postConfirmIssuance',
+        'as' => 'warehouse.confissue'
     ]);
 });

@@ -35,6 +35,10 @@ th {
     background: #eeeeee;
 }
 
+.table {
+    margin: auto;
+}
+
 table.table tr td button.disp-on-hov {
     visibility: hidden;
 }

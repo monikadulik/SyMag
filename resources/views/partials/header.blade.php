@@ -12,8 +12,8 @@
                     Zarządzaj magazynem
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="{{ route('addgoods') }}">Przyjęcie towaru</a>
-                    <a class="dropdown-item" href="{{ route('issuegoods') }}">Wydanie towaru</a>
+                    <a class="dropdown-item" href="{{ route('warehouse.acceptgoods') }}">Przyjęcie towaru</a>
+                    <a class="dropdown-item" href="{{ route('warehouse.issuegoods') }}">Wydanie towaru</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="{{ route('warehouse') }}">Pokaż stan magazynu</a>
                 </div>

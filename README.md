@@ -3,6 +3,12 @@ SyMag jest prostym systemem zarządzania magazynem, zawierającym w sobie podsta
 
 System powstaje w formie aplikacji webowej z użyciem frameworka _Laravel_
 
+</br>
+<p align="center">
+<img src="https://i.ibb.co/jkB8hff/Zrzut-ekranu-z-2019-01-27-19-49-59.png">
+</p>
+</br></br>
+
 ## Rozwijana Funkcjonalność
 - __Podgląd stanu magazynu__ - Użytkownik ma możliwość podejrzenia listy towarów dostępnej na stanie, ich liczby oraz umiejscowienia towarów na magazynie.
 
@@ -29,6 +35,19 @@ System powstaje w formie aplikacji webowej z użyciem frameworka _Laravel_
 </br></br>
 
 - __Zapisywanie transakcji magazynowych__ (przyjęcia i wydania towaru) - Użytkownik ma możliwość aktualizacji ilości dostępnych na magazynie towarów w momencie ich przyjęcia bądź wydania.
+
+</br>
+<p align="center">
+<img src="https://i.ibb.co/R0xCW5k/Zrzut-ekranu-z-2019-01-27-22-27-48.png">
+</p>
+</br></br>
+
+</br>
+<p align="center">
+<img src="https://i.ibb.co/HHkF7WN/Zrzut-ekranu-z-2019-01-27-22-28-08.png">
+</p>
+</br></br>
+
 
 - __Generacja raportów__ - Użytkownik ma możliwość wygenerowania raportu dotyczącego rotacji towarów na magazynie oraz wydajności pracowników.
 

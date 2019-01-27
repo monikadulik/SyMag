@@ -19,7 +19,7 @@ class WarehouseController extends Controller
             ->select('numer_katalogowy', 'nazwa', 'cena_jednostkowa', 'ilosc_na_stanie', 'jednostka_miary', 'kod_lokalizacji', 'id_magazynu')
             ->paginate(10);
 
-        return view('warehouse', compact('warehouses','commodities'));
+        return view('warehouse.show', compact('warehouses','commodities'));
     }
 
     public function getFilteredCommodities(Request $request){
@@ -44,7 +44,80 @@ class WarehouseController extends Controller
             })
             ->get();
 
-        return view('warehouseSearch',
+        return view('warehouse.search',
             compact('warehouses', 'commodities', 'ware_id', 'comm_name', 'cat_num'));
     }
+
+    public function getCommodityAcceptance(){
+
+        $commodities = Commodity::query()
+            ->select('id', 'id_magazynu', 'numer_katalogowy', 'nazwa', 'jednostka_miary')
+            ->get();
+
+        $warehouses = Warehouse::query()
+            ->select('id', 'nazwa')
+            ->get();
+
+        return view('warehouse.acceptgoods',
+            compact('warehouses', 'commodities'));
+    }
+
+    public function getCommodityIssuance(){
+
+        $warehouses = Warehouse::query()
+            ->select('id', 'nazwa')
+            ->get();
+
+        return view('warehouse.issuegoods',
+            compact('warehouses'));
+    }
+    public function postCommodityIssuance(Request $request){
+
+        $issued_quantity = $request->quantity;
+
+        $commodity = Commodity::query()
+            ->select('id', 'id_magazynu', 'numer_katalogowy', 'nazwa', 'ilosc_na_stanie',
+                'cena_jednostkowa', 'jednostka_miary', 'kod_lokalizacji')
+            ->where('numer_katalogowy','=', $request->catalogNumber)
+            ->where('id_magazynu','=', $request->warehouse)
+            ->where('ilosc_na_stanie','>=',$issued_quantity)
+            ->first();
+
+        if( is_null($commodity) ){
+            return view('warehouse.deficit');
+        } else {
+            return view('warehouse.confirmIssue', compact('commodity','issued_quantity'));
+        }
+    }
+
+
+    public function postConfirmIssuance(Request $request){
+
+        $commodity = Commodity::find($request->commodity_id);
+
+        if($commodity->ilosc_na_stanie >= $request->issued_quantity) {
+            $commodity->ilosc_na_stanie = $commodity->ilosc_na_stanie - $request->issued_quantity;
+        } else {
+            return view('warehouse.deficit');
+        }
+
+        $commodity->save();
+
+        return redirect()->route('warehouse');
+    }
+
+    public function postCommodityAcceptance(Request $request){
+
+        return view('warehouse.confaccept',
+            compact('commodity'));
+    }
+
+    public function getConfirmAcceptance(){
+        return;
+    }
+
+    public function postConfirmAcceptance(Request $request){
+        return;
+    }
+
 }
