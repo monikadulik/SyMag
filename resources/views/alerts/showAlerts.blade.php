@@ -22,12 +22,19 @@
                     <a class="btn btn-danger" type="button" href="{{ route('alerts') }}">Usuń filtrowanie</a>
                 @else
                     <h5 class="text-muted">Założone alerty</h5>
+                    <a class="btn btn-sm btn-primary" type="button" href="{{ route('alerts.create') }}">Dodaj alert</a>
                 @endif
             </div>
 
             <div class="overflow-1">
                 @foreach($alerted_commodities as $commodity)
-                    <div class="card mb-2 p-3">
+                    <div
+                        @if( $commodity->czy_ostrzegac_o_nadmiarze && ( $commodity->ilosc_na_stanie > $commodity->max_ilosc ) ||
+                             $commodity->czy_ostrzegac_o_niedomiarze && ( $commodity->ilosc_na_stanie < $commodity->min_ilosc ))
+                            class="card border-warning mb-2 p-3"
+                        @else
+                            class="card mb-2 p-3"
+                        @endif>
                         <div class="row">
                             <div class="col-md-6 mr-auto">
                                 <div>Numer katalogowy: {{ $commodity->numer_katalogowy }}</div>
@@ -89,7 +96,6 @@
                     <h5 class="text-muted">Ostrzeżenia dla {{ $cat_num }}</h5>
                 @else
                     <h5 class="text-muted">Ostrzeżenia</h5>
-                    <a href="{{ route('alerts.create') }}" class="btn btn-sm btn-primary" type="button">Dodaj alert</a>
                 @endif
             </div>
 
