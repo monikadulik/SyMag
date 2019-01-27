@@ -1,5 +1,7 @@
 @extends('layout')
 
 @section('content')
-    <p>- Welecome View - </p>
+    <div class="text-center">
+        <img src="{{ asset('welcome.jpg') }}" alt="Witaj w systemie SyMag!">
+    </div>
 @endsection
