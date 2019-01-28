@@ -38,18 +38,17 @@ System powstaje w formie aplikacji webowej z użyciem frameworka _Laravel_
 
 </br>
 <p align="center">
-<img src="https://i.ibb.co/R0xCW5k/Zrzut-ekranu-z-2019-01-27-22-27-48.png">
+<img src="https://i.ibb.co/WG8bqQN/Zrzut-ekranu-z-2019-01-29-00-17-05.png">
 </p>
 </br></br>
+
+- __Generacja raportów__ - Użytkownik ma możliwość wygenerowania raportu dotyczącego rotacji towarów na magazynie oraz wydajności pracowników.
 
 </br>
 <p align="center">
-<img src="https://i.ibb.co/HHkF7WN/Zrzut-ekranu-z-2019-01-27-22-28-08.png">
+<img src="https://i.ibb.co/V3ryTSk/Zrzut-ekranu-z-2019-01-29-00-14-58.png">
 </p>
 </br></br>
-
-
-- __Generacja raportów__ - Użytkownik ma możliwość wygenerowania raportu dotyczącego rotacji towarów na magazynie oraz wydajności pracowników.
 
 - __Alerty informacyjne__ - po uprzedniej konfiguracji, system może powiadamiać użytkowników o kończących się zasobach magazynu. Taka funkcjonalność pozwala z wyprzedzeniem zamówić będące na wyczerpaniu materiały i uniknąć przerw w łańcuchu dostaw. System może także powiadamiać o występującej nadwyżce konkretnych produktów w celu wstrzymania kolejnych ich dostaw.
 
@@ -58,7 +57,17 @@ System powstaje w formie aplikacji webowej z użyciem frameworka _Laravel_
 <img src="https://i.ibb.co/5kJj7ST/Zrzut-ekranu-z-2019-01-05-01-25-58.png">
 </p>
 </br></br>
-<p align="center">
-<img src="https://i.ibb.co/PYQrvkG/Zrzut-ekranu-z-2019-01-05-01-31-19.png">
-</p>
-</br></br>
+
+
+## Instalacja
+
+- Skopiuj kod projektu do swojego lokalnego środowiska - `git clone`
+- Przejdź do folderu w którym znajduje się teraz projekt -  `cd`
+- Zainstaluj zależności composera (będąc w folderze projektu!) - `composer install`
+- Stwórz własną kopię pliku .env - `cp .env.example .env`
+- Wygeneruj klucz aplikacji - `php artisan key:generate`
+- Utwórz bazę danych z której będzie mogła korzystać aplikacja (MySql) - `CREATE DATABASE dbname; USE dbname;`
+- Skonfiguruj połączenie z utworzoną przed momentem bazą w pliku .env - `DB_HOST, DB_PORT, DB_DATABASE, DB_USERNAME, DB_PASSWORD`
+- Wykonaj migracje tabel i zasil bazę danymi - `php artisan migrate --seed`
+- Uruchom serwer lokalny - `php artisan serve`
+- Ciesz się aplikacją po adresem `localhost:8000`

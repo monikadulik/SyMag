@@ -1,6 +1,7 @@
 @extends('layout')
 
 @section('content')
+
     <div class="container mt-3">
         <div class="row">
             <div class="col-md-8 order-md-1 mt-2">
@@ -20,26 +21,29 @@
                             </div>
                             <div class="mr-4 mt-4">
                                 <h6>Jednostka: {{ $order_item->jednostka_miary }}</h6>
-                                <h5 class="d-inline-block mr-2">Ilosc: {{$order_item->ilosc}}</h5>
-                                {{--<small class="text-danger d-inline-block">Brakuje towarów!</small>--}}
+                                <h5 class="mr-2">Ilosc: {{$order_item->ilosc}}</h5>
+                                {{--@if($order_item->ilosc_na_stanie < $order_item->ilosc)--}}
+                                {{--<small class="text-danger">Brakuje towarów!</small>--}}
+                                {{--@endif--}}
                             </div>
-                            <div class="btn-group-vertical btn-group-toggle" data-toggle="buttons">
-                                <label class="btn btn-sm btn-outline-success">
-                                    <input type="radio" name="options" id="option1" autocomplete="off"> Spakowano
-                                </label>
-                                <label class="btn btn-sm btn-outline-warning active">
-                                    <input type="radio" name="options" id="option2" autocomplete="off"> W przygotowaniu
-                                </label>
-                                <label class="btn btn-sm btn-outline-danger">
-                                    <input type="radio" name="options" id="option3" autocomplete="off"> Problem z towarem
-                                </label>
-                            </div>
+                            {{--<div class="btn-group-vertical btn-group-toggle" data-toggle="buttons"--}}
+                            {{--id="stateof-{{ $loop->index }}">--}}
+                            {{--<label class="btn btn-sm btn-outline-success">--}}
+                            {{--<input type="radio" name="ready" id="ready">Spakowano--}}
+                            {{--</label>--}}
+                            {{--<label class="btn btn-sm btn-outline-warning active">--}}
+                            {{--<input type="radio" name="waiting" id="waiting">W przygotowaniu--}}
+                            {{--</label>--}}
+                            {{--<label class="btn btn-sm btn-outline-danger">--}}
+                            {{--<input type="radio" name="issue" id="issue"--}}
+                            {{--autocomplete="off"> Problem z towarem--}}
+                            {{--</label>--}}
+                            {{--</div>--}}
                         </li>
                     @endforeach
 
                 </ul>
             </div>
-
 
 
             <div class="col-md-4 order-md-2 mt-2">
@@ -79,7 +83,26 @@
                     </li>
                 </ul>
 
+                @if($order->status_realizacji == 'W REALIZACJI')
+                    <form method="post" action="{{ route('packed') }}">
+                        @csrf
+                        <div class="text-center m-5">
+                            <input type="hidden" name="order_id" id="order_id" value="{{$order->id}}">
+                            <button type="submit" class="btn btn-primary">Przekaż paczkę do wydania</button>
+                        </div>
+                    </form>
+                @elseif($order->status_realizacji == 'CZEKA NA WYDANIE')
+                    <form method="post" action="{{ route('pass') }}">
+                        @csrf
+                        <div class="text-center m-5">
+                            <input type="hidden" name="order_id" id="order_id" value="{{$order->id}}">
+                            <button type="submit" class="btn btn-primary">Wydaj paczkę</button>
+                        </div>
+                    </form>
+                @endif
             </div>
         </div>
     </div>
+
+
 @endsection

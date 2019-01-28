@@ -14,8 +14,10 @@
 use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'welcome')->name('welcome');
-Route::view('reports', 'reports')->name('reports');
-
+Route::get('reports',[
+   'uses' => 'Controller@reports',
+   'as' => 'reports'
+]);
 
 Route::group(['prefix' => 'alerts'], function(){
     Route::get('/', [
@@ -49,7 +51,7 @@ Route::group(['prefix' => 'alerts'], function(){
 });
 
 Route::group(['prefix' => 'orders'], function (){
-    Route::redirect('/', 'orders/inProgress');
+    Route::redirect('/', 'orders/inProgress')->name('orders');
     Route::get('awaitingPayment', [
         'uses' => 'OrdersController@showAwaitingPayment',
         'as' => 'awaitingPayment'
@@ -69,6 +71,14 @@ Route::group(['prefix' => 'orders'], function (){
     Route::get('{order}', [
         'uses' => 'OrdersController@show',
         'as' => 'show'
+    ]);
+    Route::post('packed', [
+        'uses' => 'OrdersController@packed',
+        'as' => 'packed'
+    ]);
+    Route::post('pass', [
+        'uses' => 'OrdersController@pass',
+        'as' => 'pass'
     ]);
 });
 

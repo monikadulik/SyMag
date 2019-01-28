@@ -65,6 +65,8 @@ class AlertsController extends Controller
                 ->where('numer_katalogowy', '=', $cat_num)
                 ->first();
 
+            if(is_null($commodity)) return redirect()->back();
+
             if ($max_am != '') {
                 $commodity->max_ilosc = $max_am;
                 $commodity->czy_ostrzegac_o_nadmiarze = true;

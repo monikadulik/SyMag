@@ -4,6 +4,7 @@
 
     <div class="container">
         <h5 class="m-4">Nowy alert</h5>
+
         <div class="card border-dark p-5">
             <form method="post" action="{{ route('alerts.create') }}">
 
@@ -11,7 +12,7 @@
 
                 <div class="form-group">
                     <label for="catalogNumber">Numer katalogowy produktu</label>
-                    <input type="text" class="form-control" id="catalogNumber" name="catalogNumber" placeholder="Podaj numer katalogowy...">
+                    <input type="text" class="form-control" id="catalogNumber" name="catalogNumber" placeholder="Podaj numer katalogowy..." required>
                 </div>
                 <div class="form-group">
                     <label for="warehouse">Magazyn</label>
@@ -32,7 +33,7 @@
                 </div>
                 <div class="form-group ml-4 mr-4">
                     <label for="maxAm">Maksymalna ilość:</label>
-                    <input type="text" class="form-control form-control-sm col-md-3 d-inline" id="maxAm" name="maxAm" placeholder="Podaj ilość..." disabled="">
+                    <input type="text" class="form-control form-control-sm col-md-3 d-inline" id="maxAm" name="maxAm" placeholder="Podaj ilość..." disabled="" >
                 </div>
 
                 <div class="form-group form-check">

@@ -58,4 +58,22 @@ class OrdersController extends Controller
         $contractor = Order::findOrFail($order->id)->contractor;
         return view('createPackage', compact('order', 'contractor', 'order_items'));
     }
+
+    public function packed(Request $request){
+
+        $order = Order::find($request->order_id);
+        $order->status_realizacji = 'CZEKA NA WYDANIE';
+        $order->save();
+
+        return redirect()->route('orders');
+    }
+
+    public function pass(Request $request){
+
+        $order = Order::find($request->order_id);
+        $order->status_realizacji = 'WYDANO';
+        $order->save();
+
+        return redirect()->route('awaitingIssue');
+    }
 }
