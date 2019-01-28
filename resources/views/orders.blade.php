@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container">
-        <div class="btn-group m-3">
+        <div class="btn-group m-4">
             <a class="btn {{ $state==0 ? 'btn-dark' : 'btn-secondary' }}" type="button"
                href="{{ route('awaitingPayment') }}">Oczekuje na płatność</a>
             <a class="btn {{ $state==1 ? 'btn-dark' : 'btn-secondary' }}" type="button"

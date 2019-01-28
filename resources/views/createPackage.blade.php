@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('content')
-    <div class="container">
+    <div class="container mt-3">
         <div class="row">
             <div class="col-md-8 order-md-1 mt-2">
                 <h4 class="text-muted mb-3 ml-2">Pozycje zamówienia nr: {{ $order->id }}</h4>

@@ -60,6 +60,13 @@ class WarehouseController extends Controller
     }
     public function postCommodityIssuance(Request $request){
 
+        request()->validate([
+            'warehouse' => 'required',
+            'catalogNumber' => 'required|min:3',
+            'quantity' => 'required|numeric'
+        ]);
+
+
         $issued_quantity = $request->quantity;
 
         $commodity = Commodity::query()
@@ -109,6 +116,11 @@ class WarehouseController extends Controller
 
     public function postCommodityAcceptance(Request $request){
 
+        request()->validate([
+            'warehouse' => 'required',
+            'catalogNumber' => 'required|min:3',
+        ]);
+
         $catalog_number = $request->catalogNumber;
         $warehouse_id = $request->warehouse;
 
@@ -131,6 +143,13 @@ class WarehouseController extends Controller
 
     public function postConfirmAcceptanceNew(Request $request){
 
+        request()->validate([
+            'name' => 'required|min:3',
+            'quantity' => 'required|numeric',
+            'price' => 'required|numeric',
+            'unit' => 'required',
+        ]);
+
         $commodity = new Commodity;
 
         $commodity->id_magazynu = $request->warehouse;
@@ -150,7 +169,12 @@ class WarehouseController extends Controller
         return redirect()->route('warehouse');
     }
 
+
     public function postConfirmAcceptanceAdd(Request $request){
+
+        request()->validate([
+           'quantity' => 'required|numeric'
+        ]);
 
         $commodity = Commodity::find($request->comm_id);
 

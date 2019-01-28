@@ -112,4 +112,6 @@ Route::group(['prefix' => 'warehouse'], function (){
         'uses' => 'WarehouseController@postConfirmIssuance',
         'as' => 'warehouse.confissue'
     ]);
+
+
 });

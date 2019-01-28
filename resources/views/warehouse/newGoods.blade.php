@@ -3,6 +3,13 @@
 @section('content')
     <div class="container">
         <h5 class="m-4">Przyjęcie towaru</h5>
+
+        @if($errors->any())
+            @foreach($errors->all() as $error)
+                <div class="alert alert-danger">{{ $error }}</div>
+            @endforeach
+        @endif
+
         <div class="card border-dark p-5">
             <form method="post" action="{{ route('warehouse.confacceptNew') }}">
 
@@ -22,19 +29,22 @@
 
                 <div class="form-group d-flex">
                     <label class="col-md-4" for="name">Nazwa</label>
-                    <input type="text" class="form-control" id="name" name="name" placeholder="Podaj nazwę towaru..." >
+                    <input type="text" class="form-control" id="name" name="name" value="{{old('name')}}"
+                           placeholder="Podaj nazwę towaru..." required>
                 </div>
                 <div class="form-group d-flex">
                     <label class="col-md-4" for="quantity">Przyjmowana ilość</label>
-                    <input type="text" class="form-control" id="quantity" name="quantity" placeholder="Podaj przyjmowaną ilosć..." v>
+                    <input type="text" class="form-control" id="quantity" name="quantity" value="{{old('quantity')}}"
+                           placeholder="Podaj przyjmowaną ilosć..." required>
                 </div>
                 <div class="form-group d-flex">
                     <label class="col-md-4" for="price">Cena jednostkowa za towar</label>
-                    <input type="text" class="form-control" id="price" name="price" placeholder="Podaj cenę...">
+                    <input type="text" class="form-control" id="price" name="price" value="{{old('price')}}"
+                           placeholder="Podaj cenę..." required>
                 </div>
                 <div class="form-group d-flex">
                     <label class="col-md-4" for="unit">Jednostka miary</label>
-                    <select class="custom-select" id="unit" name="unit">
+                    <select class="custom-select" id="unit" name="unit" required value="{{old('unit')}}">
                         <option value="">Wybierz jednostkę miary...</option>
                         <option value="SZTUKI">sztuki</option>
                         <option value="KG">kg</option>
