@@ -1,5 +1,5 @@
 # ![SyMag](https://image.ibb.co/enHDsq/SyMag.jpg)
-SyMag jest prostym systemem zarządzania magazynem, zawierającym w sobie podstawowe funkcjonalności wymagane przy obsłudze nowoczesnych magazynów składowania oraz zarządzania ich stanem.
+SyMag jest prostą aplikacją umożliwiającą interakcje użytkowników z bazą danych magazynu.
 
 System powstaje w formie aplikacji webowej z użyciem frameworka _Laravel_
 
